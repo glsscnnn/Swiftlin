@@ -1,12 +1,25 @@
 import numpy as np
 
+
+""" Node
+
+Class defines a node in the tree
+node has value which is the value of the node
+left is the value of the node to it's left
+right is the value of the node to it's right
+"""
 class node(object):
     def __init__(self, value = None):
         self.value = value
-        self.next = None
         self.right = None
         self.left = None
 
+""" Tree
+
+This is a bianary search tree
+we can use this to parse the string
+take the string and make the string
+"""
 class tree(object):
     def __init__(self):
         self.root = None
@@ -42,3 +55,19 @@ class tree(object):
 
 # tree aproach
 
+""" main method """
+def main():
+    inp = input("Enter Kotlin file: ")
+    out = input("Enter Swift file: ")
+
+    kt_file = open(inp, 'r')
+    sw_file = open(out, 'w+')
+
+    s = kt_file.read()
+    sw_file.write(s)
+
+    kt_file.close()
+    sw_file.close()
+
+if __name__ == "__main__":
+    main()
