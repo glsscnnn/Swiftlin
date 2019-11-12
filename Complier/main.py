@@ -61,13 +61,22 @@ def main():
     out = input("Enter Swift file: ")
 
     kt_file = open(inp, 'r')
-    sw_file = open(out, 'w+')
+    #sw_file = open(out, 'w+')
 
     s = kt_file.read()
-    sw_file.write(s)
+    b = parse(s)
+    print(b)
+    #sw_file.write(s)
 
     kt_file.close()
-    sw_file.close()
+    #sw_file.close()
 
 if __name__ == "__main__":
     main()
+
+@staticmethod
+def parse(str):
+    arr = []
+    for char in str:
+        arr.append(str(char))
+    return arr
