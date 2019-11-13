@@ -1,39 +1,19 @@
-import sys
-import re
+import parse
 
-def lex(characters, token_exprs):
-    pos = 0
-    tokens = []
-    while pos < len(characters):
-        match = None
-        for token_expr in token_exprs:
-            pattern, tag = token_expr
-            regex = re.compile(pattern)
-            match = regex.match(characters, pos)
-            if match:
-                text = match.group(0)
-                if tag:
-                    token = (text, tag)
-                    tokens.append(token)
-                break
-        if not match:
-            sys.stderr.write('Illegal character: %s\n' % characters[pos])
-            sys.exit(1)
-        else:
-            pos = match.end(0)
-    return tokens
+# token lists
+LETTER = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+WHITE_SPACE = ' '
+DTYPE = ['Byte', 'Short', 'Int', 'Long', 'Float', 'Double', 'Char', 'Boolean', 'Array']
 
-kt_file = input("Enter Kotlin File: ")
+# getting input file
+file_name = input("Enter the name of a kotlin file: ")
 
-# list of possible tokens
-token_exprs = ['println', 'print', '[', ']', '(', ')', '=', '==', '!=', '+=', '+','"']
-
-# reading the kt_file
-with open(kt_file) as f:
+# creating file object
+with open(file_name) as f:
     content = f.readlines()
 
-tokens = lex(content, token_exprs)
+# this will be real one day
+string = parse(content)
 
-print(tokens)
-
-kt_file.close()
+if LETTER in string:
+    arr.append(string)
