@@ -80,3 +80,7 @@ def parse(str):
     for char in str:
         arr.append(str(char))
     return arr
+
+
+"""Implement a parser generator"""
+
